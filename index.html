@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Random Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        input[type="number"] {
+            padding: 20px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loop Game</h1>
+    <p>Geuss the right number between 1 - 50</p>
+
+    <div>
+        <input type="number" id="userGuess" placeholder="Geben Sie Ihre Zahl ein" />
+    </div>
+    <button onclick="checkGuess()">Check</button>
+
+    <div id="result"></div>
+
+    <script>
+        // Die zufällige Zahl, die der Benutzer erraten muss
+        const correctNumber = 50;
+
+        function checkGuess() {
+            // Benutzer Eingabe holen
+            const userGuess = document.getElementById("userGuess").value;
+
+            // Ergebnis div
+            const resultDiv = document.getElementById("result");
+
+            if (userGuess == correctNumber) {
+                resultDiv.textContent = "Die Nummer " + correctNumber + " ist richtig!";
+                resultDiv.style.color = "green";
+            } else {
+                resultDiv.textContent = "Leider falsch. Versuchen Sie es nochmal!";
+                resultDiv.style.color = "red";
+            }
+         // Eingabefeld nach der Eingabe leeren
+         document.getElementById("userGuess").value = "";
+        }
+    </script>
+</body>
+</html>
